@@ -1,2 +1,3 @@
-en setning
-flere ord i en setning
+test
+en lenger setning
+en til

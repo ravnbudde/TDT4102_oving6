@@ -67,3 +67,31 @@ void bouncingBall() {
     }
 }
 
+map<int, Color> colorConverter{
+    {1, Color::red},
+    {2, Color::blue},
+    {3, Color::dark_khaki},
+    {4, Color::spring_green}
+};
+
+Config::Config(): colorUp{}, colorDown{}, velocity{}
+{};
+
+ostream& operator>>(istream& is, Config& cfg){
+    string configFromFile;
+    getline(is, configFromFile);
+    //cfg.colorUp = configFromFile[0];
+    configFromFile[0] >> cfg.colorUp;
+    configFromFile[2] >> cfg.colorDown;
+    configFromFile[4] >> cfg.velocity;
+    //cfg.colorDown = configFromFile[2];
+    //cfg.velocity = configFromFile[4]; 
+    return;   //Må fikse overloaden
+}
+
+
+void Config::printValues(){
+    cout << colorUp << endl;
+    cout << colorDown << endl;
+    cout << velocity << endl;
+}
