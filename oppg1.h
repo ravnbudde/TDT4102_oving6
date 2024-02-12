@@ -7,3 +7,5 @@ bool isTxtFile(string string);
 void inputToFile();
 
 void addLineNum();
+
+bool testFile(filesystem::path fileName, ifstream& is);

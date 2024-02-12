@@ -34,11 +34,11 @@ int main() {
     // test2.addCourse("TMA4245", "Statistikk");
     // test2.saveData();
 
-    Config test{};
-    filesystem::path configFile{"konfigurasjon.txt"};
-    ifstream is{configFile};
-    is >> test;
-    test.printValues();
+
+
+
+ 
+    bouncingBall();
 
 
 

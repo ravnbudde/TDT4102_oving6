@@ -64,5 +64,20 @@ void addLineNum(){
 }
 
 
+bool testFile(filesystem::path fileName, ifstream& is){
+    string pathString = fileName.string();
+    if(!isTxtFile(pathString)){
+        cout << "File is not a .txt file!" << endl;
+        return false;
+    }
+    is.close();
+    is.open(fileName);
+    if(!is){
+        cout << "Could not open file" << endl;
+        return false;
+    }
+    is = fileName;
+    return true;
 
+}
 

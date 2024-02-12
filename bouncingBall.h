@@ -5,21 +5,24 @@ void bouncingBall();
 class Config
 {
 private:
-    int colorUp;
-    int colorDown;
-    int velocity;
+
 
     
 
 
 public:
+    int colorUp;
+    int colorDown;
+    int velocity;
     Config();
 
     void printValues();
+    
 
-    friend ostream& operator>>(istream& is, Config& cfg);
+    friend istream& operator>>(istream& is, Config& cfg);
 
 };
+
 
 
 
