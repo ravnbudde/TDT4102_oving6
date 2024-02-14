@@ -10,10 +10,19 @@ void CourseCatalog::addCourse(string code, string name){
 }
 
 void CourseCatalog::removeCourse(string code){
+    auto a = courseCatalog.find(code);
+    if(a == courseCatalog.end()){
+        cout << "Could not find course in catalog" << endl;
+        return;
+    }
     courseCatalog.erase(code);
 }
 
 string CourseCatalog::getCourse(string code){
+    auto a = courseCatalog.find(code);
+    if(a == courseCatalog.end()){
+        return "Could not find course in catalog";
+    }
     string name = courseCatalog.at(code);
     return name;
 }
@@ -36,13 +45,15 @@ void CourseCatalog::importData(){
     string splitSegment;
     vector<string> segList;
     string line;
+    const filesystem::path sf{saveFile};
     
-    ifstream file{saveFile};
+    ifstream file{};
     file.open(saveFile);
     if(!file){
         cout << "Could not find savefile" << endl;
         return;
     }
+    file = sf;
 
     while(getline(file, line)){
         for(int i = 0; i < line.length(); i++){
